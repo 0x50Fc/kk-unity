@@ -52,7 +52,7 @@ aar() {
 
 }
 
-clone kk-app mast
+clone kk-app master
 clone kk-duktape master
 clone kk-http master
 clone kk-image master
