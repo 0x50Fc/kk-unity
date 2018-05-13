@@ -40,7 +40,19 @@ build() {
 
 }
 
-clone kk-app master
+aar() {
+    PROJ=$1
+    M=$2
+
+    if [ ! -d "bin" ]; then
+        cmd "mkdir bin"
+    fi
+
+    cmd "cp $PROJ/$M/build/outputs/aar/$M-release.aar bin/$PROJ-`date +%Y%m%d`.aar"
+
+}
+
+clone kk-app mast
 clone kk-duktape master
 clone kk-http master
 clone kk-image master
@@ -51,3 +63,5 @@ clone kk-websocket master
 clone kk-unity master
 
 build kk-unity
+
+aar kk-unity kk-app
