@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PWD=`pwd`
+HOME=`pwd`
 
 cmd() {
     echo "\033[0;1m$1\033[m"
@@ -36,7 +36,7 @@ build() {
 
     cmd "./gradlew assembleRelease"
 
-    cmd "cd $PWD"
+    cmd "cd $HOME"
 
 }
 
@@ -49,6 +49,19 @@ aar() {
     fi
 
     cmd "cp $PROJ/$M/build/outputs/aar/$M-release.aar bin/$PROJ-`date +%Y%m%d`.aar"
+
+}
+
+armeabi() {
+
+    PROJ=$1
+    M=$2
+
+    if [ ! -d "bin" ]; then
+        cmd "mkdir bin"
+    fi
+
+    cmd "cp -r $PROJ/$M/build/intermediates/cmake/release/obj/armeabi-v7a bin/armeabi-v7a"
 
 }
 
@@ -65,3 +78,4 @@ clone kk-unity master
 build kk-unity
 
 aar kk-unity kk-app
+armeabi kk-unity kk-app
