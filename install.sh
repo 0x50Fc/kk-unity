@@ -61,7 +61,7 @@ armeabi() {
         cmd "mkdir bin"
     fi
 
-    cmd "cp -r $PROJ/$M/build/intermediates/cmake/release/obj/armeabi bin/armeabi"
+    cmd "cp -r $PROJ/$M/build/intermediates/cmake/release/obj/armeabi bin/"
 
 }
 
