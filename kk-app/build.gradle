@@ -13,7 +13,7 @@ android {
 
         ndk {
             moduleName "kk-duktape"
-            abiFilters "armeabi-v7a"
+            abiFilters "armeabi"
         }
 
     }
