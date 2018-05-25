@@ -73,6 +73,7 @@ clone kk-observer master
 clone kk-script master
 clone kk-view master
 clone kk-websocket master
+clone kk-storage master
 clone kk-unity master
 
 build kk-unity
