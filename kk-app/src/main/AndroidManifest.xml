@@ -8,5 +8,5 @@
             android:name="cn.kkmofang.app.WindowActivity" android:configChanges="orientation">
         </activity>
     </application>
-    
+
 </manifest>
