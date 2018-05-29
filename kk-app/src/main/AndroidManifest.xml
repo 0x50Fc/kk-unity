@@ -1,8 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cn.kkmofang.unity" >
 
-    <application android:allowBackup="true"
-        android:supportsRtl="true">
+    <application>
         <activity
             android:theme="@style/DialogActivity"
             android:name="cn.kkmofang.app.WindowActivity" android:configChanges="orientation">
