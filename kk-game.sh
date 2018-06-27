@@ -43,12 +43,13 @@ build() {
 aar() {
     PROJ=$1
     M=$2
+    NAME=$3
 
     if [ ! -d "bin" ]; then
         cmd "mkdir bin"
     fi
 
-    cmd "cp $PROJ/$M/build/outputs/aar/$M-release.aar bin/$PROJ-`date +%Y%m%d`.aar"
+    cmd "cp $PROJ/$M/build/outputs/aar/$M-release.aar bin/$NAME.aar"
 
 }
 
@@ -74,7 +75,7 @@ armeabi_so() {
         cmd "mkdir bin"
     fi
 
-    cmd "cp -r $PROJ/$M/build/intermediates/cmake/release/obj/armeabi/lib${M}.so bin/lib${M}.so"
+    cmd "cp -r $PROJ/$M/build/intermediates/cmake/release/obj/armeabi/lib${M}.so bin/armeabi/lib${M}.so"
 
 }
 
@@ -91,8 +92,8 @@ clone kk-unity feature_game
 
 build kk-unity
 
-aar kk-unity kk-app
+aar kk-unity kk-app kk-unity-`date +%Y%m%d`
 armeabi kk-unity kk-app
 
-aar kk-unity kk-game
+aar kk-unity kk-game kk-game-`date +%Y%m%d`
 armeabi_so kk-unity kk-game
