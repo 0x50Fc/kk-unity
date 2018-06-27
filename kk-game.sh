@@ -65,6 +65,19 @@ armeabi() {
 
 }
 
+armeabi_so() {
+
+    PROJ=$1
+    M=$2
+
+    if [ ! -d "bin" ]; then
+        cmd "mkdir bin"
+    fi
+
+    cmd "cp -r $PROJ/$M/build/intermediates/cmake/release/obj/armeabi/lib${M}.so bin/lib${M}.so"
+
+}
+
 clone kk-app feature_game
 clone kk-duktape feature_game
 clone kk-http master
@@ -80,3 +93,6 @@ build kk-unity
 
 aar kk-unity kk-app
 armeabi kk-unity kk-app
+
+aar kk-unity kk-game
+armeabi_so kk-unity kk-game

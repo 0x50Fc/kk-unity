@@ -1,1 +1,1 @@
-include ':app', ':kk-app'
+include ':app', ':kk-app', ':kk-game'
