@@ -13,7 +13,7 @@ android {
 
         ndk {
             moduleName "kk-game"
-            abiFilters "armeabi-v7a"
+            abiFilters "armeabi"
         }
     }
 
