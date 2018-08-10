@@ -111,6 +111,9 @@ clone kk-script master
 clone kk-view feature_game
 clone kk-websocket master
 clone kk-storage master
+clone kk-event master
+clone kk-object master
+clone kk-element master
 clone kk-unity feature_game
 
 build kk-unity
