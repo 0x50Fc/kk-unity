@@ -102,25 +102,38 @@ armeabi_libs() {
 
 }
 
-clone kk-app feature_game
-clone kk-duktape feature_game
-clone kk-http master
-clone kk-image master
-clone kk-observer master
-clone kk-script master
-clone kk-view feature_game
-clone kk-websocket master
-clone kk-storage master
-clone kk-event master
-clone kk-object master
-clone kk-element master
-clone kk-unity feature_game
+pull() {
+    clone kk-app feature_game
+    clone kk-duktape feature_game
+    clone kk-http master
+    clone kk-image master
+    clone kk-observer master
+    clone kk-script master
+    clone kk-view feature_game
+    clone kk-websocket master
+    clone kk-storage master
+    clone kk-event master
+    clone kk-object master
+    clone kk-element master
+    clone kk-unity feature_game
+    clone kk-canvas master
+}
 
-build kk-unity
+release() {
+    build kk-unity
+    aar kk-unity kk-app kk-unity-`date +%Y%m%d`
+    armeabi kk-unity kk-app
 
-aar kk-unity kk-app kk-unity-`date +%Y%m%d`
-armeabi kk-unity kk-app
+    aar kk-unity kk-game kk-game-`date +%Y%m%d`
+    armeabi_so kk-unity kk-game
+    armeabi_libs kk-unity kk-game event
+}
 
-aar kk-unity kk-game kk-game-`date +%Y%m%d`
-armeabi_so kk-unity kk-game
-armeabi_libs kk-unity kk-game event
+if [ $1 = "pull" ]; then
+    pull
+    exit
+fi
+
+pull
+release
+
