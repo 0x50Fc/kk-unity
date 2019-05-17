@@ -62,7 +62,7 @@ armeabi() {
         cmd "mkdir bin"
     fi
 
-    cmd "cp -r $PROJ/$M/build/intermediates/cmake/release/obj/armeabi bin/"
+    cmd "cp -r $PROJ/$M/build/intermediates/cmake/release/obj/ bin/"
 
 }
 
@@ -124,16 +124,17 @@ release() {
     aar kk-unity kk-app kk-unity-`date +%Y%m%d`
     armeabi kk-unity kk-app
 
-    aar kk-unity kk-game kk-game-`date +%Y%m%d`
-    armeabi_so kk-unity kk-game
-    armeabi_libs kk-unity kk-game event
+    # aar kk-unity kk-game kk-game-`date +%Y%m%d`
+    # armeabi_so kk-unity kk-game
+    # armeabi_libs kk-unity kk-game event
 }
 
-if [ $1 = "pull" ]; then
+if [ "$1" = "pull" ]; then
     pull
     exit
 fi
 
-pull
+
+# pull
 release
 
